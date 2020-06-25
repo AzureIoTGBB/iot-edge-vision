@@ -1,0 +1,29 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "Cameras",
+      "databaseName": "EdgeVision",
+      "collectionName": "Cameras",
+      "sqlQuery": "SELECT c.name, c.location, c.make, c.model, c.type, c.id FROM c",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in"
+    }
+  ]
+}

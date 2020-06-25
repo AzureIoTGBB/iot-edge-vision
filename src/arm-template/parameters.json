@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "IotHubs_besafe_connectionString": {
+            "value": null
+        },
+        "IotHubs_besafe_containerName": {
+            "value": null
+        },
+        "sites_besafe_name": {
+            "value": null
+        },
+        "sites_viddash_name": {
+            "value": null
+        },
+        "IotHubs_besafe_name": {
+            "value": null
+        },
+        "SignalR_besafe_name": {
+            "value": null
+        },
+        "storageAccounts_besafe_name": {
+            "value": null
+        },
+        "serverfarms_ASP_rgbesafe_875d_name": {
+            "value": null
+        },
+        "serverfarms_ASP_rgbesafe_8ae1_name": {
+            "value": null
+        },
+        "databaseAccounts_besafe_name": {
+            "value": null
+        },
+        "streamingjobs_besafe_name": {
+            "value": null
+        },
+        "workspaces_besafe_name": {
+            "value": null
+        },
+        "actionGroups_Application_Insights_Smart_Detection_name": {
+            "value": null
+        },
+        "smartdetectoralertrules_failure_anomalies___viddash_name": {
+            "value": null
+        },
+        "components_viddash_externalid": {
+            "value": null
+        },
+        "actiongroups_application_20insights_20smart_20detection_externalid": {
+            "value": null
+        }
+    }
+}
