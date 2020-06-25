@@ -1,4 +1,5 @@
 # Vision on the Edge
+<!-- markdownlint-disable MD024 -->
 
 ## Introduction
 
@@ -20,7 +21,7 @@ In an effort to improve the efficacy of visual inspection, Enterprises began tur
 * Are products being stored in a safe manner?
 * Are there non-reported close calls in a facility, i.e. pedestrian/equipment “near misses?”
 
-### Why vision on the Edge
+## Why vision on the Edge
 
 Over the past decade, computer vision has become a rapidly evolving area of focus for Enterprises, as cloud-native technologies, such as containerization, have enabled portability and migration of this the technology toward the network edge. For instance, custom vision inference models trained in the Cloud can be easily containerized for use in an Azure IoT Edge runtime-enabled device.
 
@@ -39,8 +40,6 @@ The purpose of this document is to give some concrete guidance on some of the ke
 * [Persistence of alerts](#inferencing-results-persistence)
 * [User Interface](#user-interface)
 
-TODO:  make the above hyperlinks
-
 ## Camera Considerations
 
 ### Camera selection
@@ -55,8 +54,6 @@ This is more of your traditional camera image.   A 2D image is captured and then
 
 Examples of manufacturers of Area Scan Cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Axis](https://www.axis.com/en-us), [Sony](https://www.sony.co.jp/Products/ISP/products/), [Bosch](https://commerce.boschsecurity.com/us/en/IP-Cameras/c/10164917899), [FLIR](https://www.flir.com/), [Allied Vision](https://www.alliedvision.com/en/digital-industrial-camera-solutions.html)
 
-> 
-
 #### Line Scan Cameras
 
 Unlike the Area Scan Cameras, the Line Scan Camera has a single row of linear pixel sensors.  This can allow the camera to take one-pixel width in very quick successions and then stitches these one-pixel images into a video stream that is sent over to an Edge Device for processing
@@ -65,17 +62,11 @@ Unlike the Area Scan Cameras, the Line Scan Camera has a single row of linear pi
 
 Examples of manufacturers of Area Scan Cameras are [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Teledyne Dalsa](https://www.teledynedalsa.com/en/home/), [Hamamatsu Corporation](https://www.hamamatsu.com/us/en/index.html?nfxsid=5ede4ac8e12e41591626440), [DataLogic](https://www.datalogic.com/), [Vieworks](https://vieworks.com/), and [Xenics](https://www.xenics.com/)
 
-> 
-
 #### Embedded Smart Camera
 
 This type of camera can use either a Area Scan or Line Scan Camera for the acquisition of the images, however, the Line Scan Smart Camera is rare.  The main feature of this camera is that it not only acquires the image, but it can also process the image as they are a self-contained stand-alone system.  They typically have either and RS232 or Ethernet port output, and this allows the Smart Cameras to be integrated directly into a PLC or other IIoT interfaces.
 
-TODO:  is the devkit an example?  do any of these run IoT Edge?  how do we integrate with them with Edge?  What is 'output' on the serial/ethernet ports?
-
 Examples of manufacturers of Embedded Smart Cameras are  [Basler](https://www.baslerweb.com/en/products/industrial-cameras/), [Lesuze Electronics](https://www.leuze.com/en/usa/)
-
-> 
 
 #### Other camera features to consider
 
@@ -116,7 +107,7 @@ In a computer vision workload lighting is a critical component to camera placeme
 
   Angular placement of light
 
-  <image src="media/Lightingchart.png" width="550">
+![lightingchart](../media/Lightingchart.png)
 
 #### Field of View
 
@@ -139,30 +130,24 @@ In building a computer vision workload it is also important to understand how th
 
 * **Camera Serial Interface:**  CSI specification is from Mobile Industry Processor Interface(MIPI).  It is an interface that describes how to communicate between a camera and a host processor.
 
-  ​	There are several standards defined for CSI
+There are several standards defined for CSI
 
-  ​		CSI-1:  This was the original standard that MIPI started with.  
+* **CSI-1**:  This was the original standard that MIPI started with.  
+* **CSI-2**:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options.  This is further divided into several layers:
+  1. Physical Layer (C-PHY, D-PHY)
+  2. Lane Merger layer
+  3. Low Level Protocol Layer
+  4. Pixel to Byte Conversion Layer
+  5. Application layer
 
-  ​		CSI-2:  This standard was released in 2005, and uses either D-PHY or C-PHY as physical layers options.  This is further divided into several layers:
-
-  ​			1. Physical Layer (C-PHY, D-PHY)
-
-  ​			2. Lane Merger layer
-
-  ​			3. Low Level Protocol Layer
-
-  ​			4. Pixel to Byte Conversion Layer
-
-  ​			5. Application layer
-
-  ​		The specification was updated in 2017 to v2 and added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
+The specification was updated in 2017 to v2 and added support for RAW-24 color depth, Unified Serial Link, and Smart Region of Interest.
 
 ## Hardware Acceleration
 
 Along with the camera selection, one of the other critical decisions in Vision on the Edge projects is hardware acceleration. Options include:
 
 * **CPU:** The Central Processing Unit (CPU) is your default compute for most processes running on a computer, it is designed for general purpose compute. Some Vision Workloads where timing is not as critical this might be a good option. However, most workloads that involve critical timing, multiple camera streams, and/or high frame rates will require more specific hardware acceleration
-* **GPU:** Many people are familiar with the Graphics Processing Unit (GPU) as this is the de-facto processor for any high-end PC graphics card. In recent years the GPU has been leveraged in high performance computer (HPC) scenarios, and in data mining, and in computer AI/ML workloads. The GPU’s massive potential of parallel computing can be used in a vision workload to accelerate the processing of pixel data. The downside to a GPU is the power to watt ratio and this is a critical factor to consider for your vision workload.  TODO: so what is the guidance here?
+* **GPU:** Many people are familiar with the Graphics Processing Unit (GPU) as this is the de-facto processor for any high-end PC graphics card. In recent years the GPU has been leveraged in high performance computer (HPC) scenarios, and in data mining, and in computer AI/ML workloads. The GPU’s massive potential of parallel computing can be used in a vision workload to accelerate the processing of pixel data. The downside to a GPU is the power to watt ratio and this is a critical factor to consider for your vision workload.
 * **FPGA:** Field Programmable Gate Arrays are reconfigurable hardware accelerators. These powerful accelerators allow for the growth of Deep Learning Neural networks, which are still evolving. These accelerators have millions of programmable gates, hundred of I/O pins, and exceptional compute power (in the Trillions of tera-MAC’s) There also a lot of different libraries available for FPGA’s to use that are optimized for vision workloads. Some of these libraries also include preconfigured interfaces to connect to downstream cameras and devices. One area that FPGA’s tend to fall short on is floating point operations, however, manufacturers are currently working on this issue and have made a lot of improvements in this area.
 * **ASIC:** Application Specific Integrated Circuit is by far the fastest accelerator on the market today.  While they are the fastest, they are the hardest to change as they are manufactured to function for a specific task.  These custom chips are gaining popularity due to size, power per watt performance, and IP protection (because the IP is burned into the ASIC accelerator it is much harder to backwards engineer proprietary algorithms).
 
@@ -172,9 +157,7 @@ Along with the camera selection, one of the other critical decisions in Vision o
 
 * **OpenVINO**: Open Visual Interface and Neural Network Optimization) is a toolkit from Intel for optimization of Deep Learning models.  There are two different versions of the tool kit, one that is OpenVINO which is supported by open source community and Intel(R) Distribution of OpenVINO which is supported by Intel.  This toolkit supports Caffe, TensorFlow, MxNet, Kaldi, and ONNX.
 
-* **ONNX**:  Open neural Network Exchange is an ecosystem for open-source artificial intelligence.  In 2017 Facebook and Microsoft built a way to switch between machine learning frameworks like PyTorch, Caffe2, IBM, ARM, AMD, and Qualcomm.  This integrational framework allows for developers to easily move between frameworks, allowing for the AI development to take advantage of faster training, network architecture fixability, or use on mobile devices.  Other partnerships with ONNX is Facebook, Microsoft, Apple, Amazon, Google, and IBM. 
-
-  
+* **ONNX**:  Open neural Network Exchange is an ecosystem for open-source artificial intelligence.  In 2017 Facebook and Microsoft built a way to switch between machine learning frameworks like PyTorch, Caffe2, IBM, ARM, AMD, and Qualcomm.  This integrational framework allows for developers to easily move between frameworks, allowing for the AI development to take advantage of faster training, network architecture fixability, or use on mobile devices.  Other partnerships with ONNX is Facebook, Microsoft, Apple, Amazon, Google, and IBM.
 
 ## Image storage and management
 
@@ -201,8 +184,6 @@ We believe that the IoT Edge Blob Storage module is the most powerful and straig
 5. As Label data needs to be saved, a local database is preferred to store this metadata as it will allow easy lookup for the UX and can be synced to cloud via telemetry messages.
 6. During scoring run, the model will detect matching patterns and generate events of interest. This metadata will be sent to cloud via telemetry referring the image URI and optionally stored in local database for edge UX.  The images will continue to be stored to Edge Blob and synced with Azure Blob
 
-TODO:  steveb - review and understand
-
 ## Alerts persistence
 
 In the context of vision on edge, alerts is a response to an event that is triggered by the AI model (in other words, the inferencing results). The type of event is determined by the training imparted to the model. These events are separate from operational events raised by the processing pipeline and any related to the health of the runtime.
@@ -217,7 +198,7 @@ Some of the common alerts types are:
 * Total Count of objects over period of time
 * Average Count of objects over period of time
 
-alerts by their definition are required to be monitored as they drive certain actions. They are critical to operations, being time sensitive in terms of processing and required to be logged for audit and further analysis.
+Alerts by their definition are required to be monitored as they drive certain actions. They are critical to operations, being time sensitive in terms of processing and required to be logged for audit and further analysis.
 
 The persistence of alerts needs to happen locally on the edge where it is raised and then passed on to the cloud for further processing and storage. This is to ensure quick response locally and avoid losing critical alerts due to any transient failures.
 
@@ -243,135 +224,131 @@ The user interface requirements of an IoT solution will vary depending on the ov
 
 Power BI is a compelling option for our Analytics / Virtualization needs. It provides power features to create customizable, interactive dashboards. It also allows connectivity to many popular database systems and services. It is available as a managed service and as a self-hosted package. The former is the most popular and recommend options. With Power BI embedded you could add customer-facing reports, dashboards, and analytics in your own applications by using and branding Power BI as your own. Reduce developer resources by automating the monitoring, management, and deployment of analytics, while getting full control of Power BI features and intelligent analytics.
 
-(TODO:  Should we add something about dashboarding on the edge?  -- possibly, since we talk about storing interference results, labels, and images locally above)
-
 Another suitable technology for IoT visualizations is Azure Maps which allows you to create location-aware web and mobile applications using simple and secure geospatial services, APIs, and SDKs in Azure. Deliver seamless experiences based on geospatial data with built-in location intelligence from world-class mobility technology partners.
 
 Azure App Service is a managed platform with powerful capabilities for building web and mobile apps for many platforms and mobile devices. It allows developers to quickly build, deploy, and scale web apps created with popular frameworks .NET, .NET Core, Node.js, Java, PHP, Ruby, or Python, in containers or running on any operating system. Meet rigorous, enterprise-grade performance, security, and compliance requirements by using the fully managed platform for your operational and monitoring tasks.
-
-TODO:  Kubernetes vs. App Services??
 
 For real time data reporting, Azure SignalR Service, makes adding real-time communications to your web application is as simple as provisioning a service—no need to be a real-time communications guru! It easily integrates with services such as Azure Functions, Azure Active Directory, Azure Storage, Azure App Service, Azure Analytics, Power BI, IoT, Cognitive Services, Machine Learning, and more.
 To secure your user interface solutions, The Azure Active Directory (Azure AD) enterprise identity service provides single sign-on and multi-factor authentication to help protect your users from 99.9 percent of cybersecurity attacks.
 
 ## Scenarios
 
-#### Use case 1
+### Use case 1
 
-**Overview**
+#### Overview
 
 Contoso Boards produces high quality circuit boards used in computers. Their number one product is a motherboard. Lately they have been seeing an increase in issues with chip placement on the board. Through their investigation they have noticed that the circuit boards are getting placed incorrectly on the assembly line. They need a way to identify if the circuit board is placed on the assembly line correctly.   The data scientist at Contoso Boards are most familiar with TensorFlow and would like to continue using it as their primary ML model structure.  Contoso Boards has several assembly lines that produce these mother boards.  Contoso Boards would also like to centralized management of the entire solution.
 
-Questions
+#### Questions
 
 What are we analyzing?
 
-- Motherboard
+* Motherboard
 
 Where are we going to be viewing the motherboard from?
 
-- Assembly Line Conveyor belt
+* Assembly Line Conveyor belt
 
 What camera do we need?
 
-- Area or Line scan
-- Color or Monochrome
-- CCD or CMOS Sensor
-- Global or rolling shutter
-- Frame Rate
-- Resolution
+* Area or Line scan
+* Color or Monochrome
+* CCD or CMOS Sensor
+* Global or rolling shutter
+* Frame Rate
+* Resolution
 
 What type of lighting is needed?
 
-- Backlighting
-- Shade
-- Darkfield
+* Backlighting
+* Shade
+* Darkfield
 
 How should the camera be mounted?
 
-- Top down
-- Side view
-- Angular
+* Top down
+* Side view
+* Angular
 
 What hardware should be used?
 
-- CPU
-- FPGA
-- GPU
-- ASIC
+* CPU
+* FPGA
+* GPU
+* ASIC
 
-**Solution**
+#### Solution
 
 Based on the overall solution that the Contoso Boards is looking for with this vision use case we should be looking for edge detection of the part.  Based on this we need to position a camera directly above the at 90 degrees and about 16 inches above the part. Since the conveyer system moves relatively slowly, we can use an Area Scan camera with a Global shutter. For this use case our camera should capture about 30 frames per second. As for the resolution using the formula of Res=(Object Size) Divided by (details to be captured). Based on the formula Res=16”/8” give 2MP in x and 4 in y so we need a camera capable of 4MP. As for the sensor type, we are not fast moving, and really looking for an edge detection, so a CCD sensor should be used. One of the more critical aspects for any vision workload is lighting. In this application Contoso Boards should choose to use a white filter back light. This will make the part look almost black and have a high amount of contrast for edge detection. When it comes to color options for this application it is better to be in black and white, as this is what will yield the sharpest edge for the detection AI model.   Looking at what kind of hard, the data scientist are most familiar with TensorFlow and learning ONNX or others would slow down the time for development of the model.  Also because there are several assembly lines that will use this solution, and Contoso Boards would like a centrally managed IoT Edge and Azure IoT would work well here.  Based on the workload, the fact that Contoso Boards already know TensorFlow, and this will be used on multiple assembly lines, GPU based hardware would be the choice for hardware acceleration.
 
-**Sample of what the camera would see:**
+#### Sample of what the camera would see
 
-<image src="media/MotherBoard1.jpg" width="800">
+![motherboard](../media/MotherBoard1.jpg)
 
-#### Use Case 2
+### Use Case 2
 
-**Overview**
+#### Overview
 
 Contoso Shipping recently has had several pedestrian accidents at their loading docks. Most of the accidents are happening when a truck leaves the loading dock, and the driver does not see a dock worker walking in front of the truck. Contoso Shipping would like a solution that would watch for people, predict the direction of travel, and warn the drivers of potential dangers of hitting the workers.  The distance from the cameras to Contoso Shipping's server room is to far for GigE connectivity, however they do have a large WIFI mesh that could be used for connectivity.  Most of the data scientist that Contoso Shipping employ are familiar with Open-VINO and they would like to be able to reuse the models on additional hardware in the future.  The solution will also need to ensure that devices are operating as power efficiently as possible.  Finally, Contoso Shipping needs a way to manage the solution remotely for updates.  
 
-Questions:
+#### Questions
 
 What are we analyzing?
 
-- People and patterns of movement
+* People and patterns of movement
 
 Where are we going to be viewing the people from?
 
-- The loading docks are 165 feet long 
-- Cameras will be placed 17 feet high to keep with city ordnances.
-- Cameras will need to be positioned 100 feet away from the front of the trucks.
-- Camera focus will need to be 10 feet behind the front of the truck, and 10 additional feet in front of the truck, giving us a 20 foot depth on focus.
+* The loading docks are 165 feet long
+* Cameras will be placed 17 feet high to keep with city ordnances.
+* Cameras will need to be positioned 100 feet away from the front of the trucks.
+* Camera focus will need to be 10 feet behind the front of the truck, and 10 additional feet in front of the truck, giving us a 20 foot depth on focus.
 
 What camera do we need?
 
-- Area or Line scan
-- Color or Monochrome
-- CCD or CMOS Sensor
-- Global or rolling shutter
-- Frame Rate
-- Resolution
+* Area or Line scan
+* Color or Monochrome
+* CCD or CMOS Sensor
+* Global or rolling shutter
+* Frame Rate
+* Resolution
 
 What type of lighting is needed?
 
-- Backlighting
-- Shade
-- Darkfield
+* Backlighting
+* Shade
+* Darkfield
 
 What hardware should be used?
 
-- CPU
-- FPGA
-- GPU
-- ASIC
+* CPU
+* FPGA
+* GPU
+* ASIC
 
 How should the camera be mounted?
 
-- Top down
-- Side view
-- Angular
+* Top down
+* Side view
+* Angular
 
-**Solution**
+#### Solution
 
 Based on the distance of the loading dock size Contoso Shipping will require several cameras to cover the entire dock. Based on zoning laws that Contoso Shipping must adhere to require that the surveillance cameras can not be mounted higher that 20 feet. In this use case the average size of a worker is 5 foot 8 inches. The solution must use the least number of cameras as possible.
 
 Formula:
 
-<image src="media/fieldofview.png" width="600">
+![field of view](/media/fieldofview.png)
 
 For an example if we look at the following images:
 
 Taken with 480 horizontal pixels at 20 foot
 
-<image src="media/Car1.png" width="600">
+![car1](/media/Car1.png)
 
 Taken with 5184 horizontal pixels at 20 foot
 
-<image src="media/Car2.png" width="600">
+![car2](../media/Car2.png)
 
 The red square is shown to illustrate one pixel color.
 
@@ -379,8 +356,4 @@ The red square is shown to illustrate one pixel color.
 
 With the above in mind, when choosing a camera for the overall solution required for Contoso Shipping, we need to think about how many cameras and at what resolution is needed to get the correct amount of details to detect a person. Since we are only trying to identify if a person is in the frame or not, our PPF does not need to be around 80 (which is what is about needed for facial identification) and we can use somewhere around 15-20. That would place the FOV something 16 foot. 16-foot FOV would give us about 17.5 pixels per foot…which fits within our required PPF of 15-20. This would mean that we need a 10MP camera that has a horizontal resolution of ~5184 pixels, and a lens that would allow for a FOV of 16 feet. When looking at the solution the cameras would need to be placed outside, and the choice of sensor type should not allow for “bloom”. Bloom is when light hits the sensor and overloads the sensor with light…this causes a view of almost over exposure or a “white out” kind of condition. CMOS is the choice here. Contoso operates 24x7 and as such needs to ensure that nighttime personal are also protected. When looking at color vs Monochrome, Monochrome handles low light conditions much better, and we are not looking to identify a person based on color monochrome sensors are a little cheaper as well. How many cameras will it take, since we have figured out that our cameras can look at a 16 foot path it is just simple math. 165 foot dock divided by 16 foot FOV gives us 10.3125 cameras. So the solution would need 11 Monochrome 5184 horizontal pixel (or 10MP) CMOS cameras with IPX67 housings or weather boxes. The cameras would be mounted on 11 poles 100 feet from the trucks at 17f high.  Based on the fact that the data scientist are more familiar with Open-VINO data models should be built in ONNX.  When looking for what hardware should be used, they need a device that can be connected over WIFI, and use as little power as possible.  Based on this they should look to an FPGA processor, an ASIC processor would also work, but due to the nature of how an ASIC processor works it would not meet the requirement of being able to use the models on different hardware in the future.
 
-<image src="media/TruckPersonCameraMount.png" width="900">
-
-TODO:  guidance??
-TODO:  introduce reference implementation?
-TODO:  needs pictures!  :-)
+![camera mount](/media/TruckPersonCameraMount.png)
