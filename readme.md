@@ -31,6 +31,6 @@ Our approach to the sample solution was to take advantage of as much out of the 
 * [Azure Cognative Services]()
 * [ReactJS]()
   
-### Solutions Archtecture
+### Solution Archtecture
 
 ADD VISIO DIAGRAM HERE
