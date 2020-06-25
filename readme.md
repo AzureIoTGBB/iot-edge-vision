@@ -19,7 +19,7 @@ The purpose of this document is to give some concrete guidance on some of the ke
 
 ## Sample Solution
 
-Our approach to the sample solution was to take advantage of as much out of the box funtionality as possible to show that complex problems are able to be solve with technologes that don't require expert level skill sets and in short project time cycles. The following technologies and services were use to implement the sample solutions:
+Our approach to the sample solution was to take advantage of as much out of the box functionality as possible to show that complex problems can be solved with technologies that don't require expert-level skill sets to or long project time cycles to implement. The following technologies and services were used to implement the sample solutions:
 
 * [Azure AppService](https://docs.microsoft.com/en-us/azure/app-service/)
 * [Azure WebApps](https://docs.microsoft.com/en-us/azure/app-service/)
@@ -28,7 +28,7 @@ Our approach to the sample solution was to take advantage of as much out of the 
 * [CosmoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/)
 * [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
 * [IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/)
-* [Azure Cognative Services](https://docs.microsoft.com/en-us/azure/machine-learning/)
+* [Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/machine-learning/)
 * [Azure Security Center for IoT](https://docs.microsoft.com/en-us/azure/asc-for-iot/)
 * [ReactJS]()
   
