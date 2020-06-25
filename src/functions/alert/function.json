@@ -1,0 +1,29 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "Alerts",
+      "databaseName": "EdgeVision",
+      "collectionName": "Alerts",
+      "sqlQuery": "SELECT c.camera, c.datetime, c.type, c.image, c.id FROM c",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in"
+    }
+  ]
+}
