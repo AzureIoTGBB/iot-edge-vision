@@ -4,7 +4,7 @@
 
 Visual inspection of products, resources and environments has been a core practice for most Enterprises, and was, until recently, a very manual process. An individual, or group of individuals, was responsible for performing a manual inspection of the asset or environment, which, depending on the circumstances, could become inefficient, inaccurate or both, due to human error and limitations.
 
-Our intent with this [guidance](/docs/guidance.md) is to provide a detailed view at the technologies availble today to allow enterprices to fully capitalize on the power of AI, Edge Computing and advancements in camera technologies to bring bring powerful vision at the edge solutions. In addition, we are provinding a simple [sample solution](/docs/vision-sample.md) that brings some of the ideas in the guidance document to life. 
+Our intent with this [guidance](/docs/guidance.md) is to provide a detailed view at the technologies availble today to allow enterprices to fully capitalize on the power of AI, Edge Computing and advancements in camera technologies to bring powerful vision at the edge solutions. In addition, we are provinding a simple [sample solution](/docs/vision-sample.md) that brings some of the ideas in the guidance document to life. 
 
 ## Guidance
 
