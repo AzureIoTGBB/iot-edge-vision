@@ -10,7 +10,7 @@ Our intent with this [guidance](/docs/guidance.md) is to provide a detailed view
 
 The purpose of this document is to give some concrete guidance on some of the key decisions when designing an end-to-end vision on the edge solution. Specifically, we will address:
 
-* [Camera selection and placement](/docs/guidance.md#camera-considerations)
+* [Camera selection and placement](docs/guidance.md#camera-considerations)
 * [Hardware acceleration](/docs/guidance.md#hardware-acceleration)
 * [Choice of ML model](/docs/guidance.md#machine-learning-model)
 * [Image storage and management](/docs/guidance.md#image-storage-and-management)
