@@ -153,7 +153,9 @@ Along with the camera selection, one of the other critical decisions in Vision o
 
 ## Machine learning and data science
 
+<p>
 <img alt="Vision on the edge ds cycle" src="../media/ds_cycle.jpg" width="60%">
+</p>
 
 The process of designing the machine learning (ML) approach for a vision on the edge scenario one of the biggest challenges in the entire planning process.  Therefore, it is important to understand how to consider and think about ML in the context of edge devices.  Some of the considerations and hurdles are outlined below to help begin to think in terms of using machine learning to address business problems and pain points with guidance including:
 
@@ -239,8 +241,9 @@ In summary, here are the key considerations:
 
 The data science process for edge deployments has a general pattern.  After a clear data-driven problem statement is formulated, the next steps generally include the following.
 
+<p>
 <img alt="Vision on the edge ds cycle" src="../media/ds_cycle.jpg" width="90%">
-
+</p>
 
 - **Data Collection**.  Data collection or acquisition could be an online image search, from a currently deployed device, or other representative data source.  Generally, the more data the better.  In addition, the more variability, the better the generalization.
 - **Data Labeling**.  If only hundreds of images need to be labeled usually (e.g. when using transfer learning) this is done in-house, whereas, if tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
@@ -251,7 +254,9 @@ The data science process for edge deployments has a general pattern.  After a cl
 
 The diagram below gives a picture with an example data science process wherein open source tools may be leveraged for the data science workflow.  Data availability and type will drive most of the choices, even, potentially, the devices/hardware chosen.
 
+<p>
 <img src="../media/vision_edge_flow.jpg" width="90%">
+</p>
 
 If a workflow is already in existance for the data scientists and app developers, a few other considerations exist.  First, it is advised to have a code, model and data versioning system in place.  Secondly, an automation plan for code and integration testing along with other aspects of the data science process (triggers, build/release process, etc.) will help speed up time to production and cultivate collaboration within the team.
 
