@@ -4,7 +4,7 @@
 
 Visual inspection of products, resources and environments has been a core practice for most Enterprises, and was, until recently, a very manual process. An individual, or group of individuals, was responsible for performing a manual inspection of the asset or environment, which, depending on the circumstances, could become inefficient, inaccurate or both, due to human error and limitations.
 
-Our intent with this [guidance](/docs/guidance.md) is to provide a detailed view at the technologies available today to allow enterprises to fully capitalize on the power of AI, Edge Computing and advancements in camera technologies to bring powerful vision at the edge solutions. In addition, we are providing a simple [sample solution](/docs/vision-sample.md) that brings some of the ideas in the guidance document to life. 
+Our intent with this [guidance](/docs/guidance.md) is to provide a detailed view at the technologies available today to allow enterprises to fully capitalize on the power of AI, Edge Computing and advancements in camera technologies to bring powerful vision at the edge solutions. 
 
 ## Guidance
 
@@ -19,19 +19,4 @@ The purpose of this document is to give some concrete guidance on some of the ke
 
 ## Sample Solution
 
-Our approach to the sample solution was to take advantage of as much out of the box functionality as possible to show that complex problems can be solved with technologies that don't require expert-level skill sets to or long project time cycles to implement. The following technologies and services were used to implement the sample solutions:
-
-* [Azure AppService](https://docs.microsoft.com/en-us/azure/app-service/)
-* [Azure WebApps](https://docs.microsoft.com/en-us/azure/app-service/)
-* [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/)
-* [Azure SignalR](https://docs.microsoft.com/en-us/azure/azure-signalr/)
-* [CosmoDB](https://docs.microsoft.com/en-us/azure/cosmos-db/)
-* [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/)
-* [IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/)
-* [Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/machine-learning/)
-* [Azure Security Center for IoT](https://docs.microsoft.com/en-us/azure/asc-for-iot/)
-* [ReactJS]()
-  
-### Solution Architecture
-
-As of the time of publication the architecture section is currently under development.  However, while we are finishing up the details on the architecture section we wanted to share out the guidance gathered within this documentation.  
+As of the time of publication the sample solution section is currently under development.  However, while we are finishing up the details on this section we wanted to share out the guidance gathered within this documentation.  
