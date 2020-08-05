@@ -9,7 +9,7 @@ In an effort to improve the efficacy of visual inspection, Enterprises began tur
 
 **Vision as Quality Assurance** – In manufacturing environments, quality inspection of parts and processes with a high degree of accuracy and velocity is one of the use cases for Vision AI. An enterprise pursuing this path automates the inspection of a product for defects to answer questions such as:
 
-* Is the manufacturing process producing consistent results?
+* Is the manufacturing process producing consistent results? 
 * Is the product assembled properly?
 * Can I get notification of a defect sooner to reduce waste?
 * How can I leverage drift in my computer vision model to prescribe predictive maintenance?
