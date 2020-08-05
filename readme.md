@@ -20,3 +20,4 @@ The purpose of this document is to give some concrete guidance on some of the ke
 ## Sample Solution
 
 As of the time of publication the architecture section is currently under development.  However, while we are finishing up the details on the architecture section we wanted to share out the guidance gathered within this documentation.  
+
