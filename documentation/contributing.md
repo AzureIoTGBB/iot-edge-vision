@@ -37,4 +37,4 @@ To get started, simply follow these steps:
 1. Ensure the code works within the containers provided.
 1. Create a pull request.
 
-If you are new to to the Git workflow, [check out this introduction from Github](https://guides.github.com/activities/hello-world/).
+If you are new to to the Git workflow, [check out this introduction from Github](https://guides.github.com/activities/hello-world/). 
