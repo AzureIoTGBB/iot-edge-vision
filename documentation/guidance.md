@@ -35,7 +35,7 @@ The purpose of this document is to give some concrete guidance on some of the ke
 
 * [Camera selection and placement](#camera-considerations)
 * [Hardware acceleration](#hardware-acceleration)
-* [Choice of ML model](#machine-learning-model)
+* [Machine learning and data science](#machine-learning-and-data-science)
 * [Image storage and management](#image-storage-and-management)
 * [Persistence of alerts](#inferencing-results-persistence)
 * [User Interface](#user-interface)
@@ -153,8 +153,6 @@ Along with the camera selection, one of the other critical decisions in Vision o
 
 ## Machine learning and data science
 
-![Vision on the edge ds cycle](/media/ds_cycle.jpg)
-
 The process of designing the machine learning (ML) approach for a vision on the edge scenario one of the biggest challenges in the entire planning process.  Therefore, it is important to understand how to consider and think about ML in the context of edge devices.  Some of the considerations and hurdles are outlined below to help begin to think in terms of using machine learning to address business problems and pain points with guidance including:
 
 * Always consider first how to solve the problem without ML or with a simple ML algorithm
@@ -244,7 +242,7 @@ In summary, here are the key considerations:
 
 The data science process for edge deployments has a general pattern.  After a clear data-driven problem statement is formulated, the next steps generally include the following.
 
-![Vision on the edge ds cycle](/media/ds_cycle.jpg)
+![Vision on the edge ds cycle](../media/ds_cycle.jpg)
 
 * **Data Collection**.  Data collection or acquisition could be an online image search, from a currently deployed device, or other representative data source.  Generally, the more data the better.  In addition, the more variability, the better the generalization.
 * **Data Labeling**.  If only hundreds of images need to be labeled usually (e.g. when using transfer learning) this is done in-house, whereas, if tens of thousands of images need to be labeled, a vendor could be enlisted for both data collection and labeling.  
@@ -255,7 +253,7 @@ The data science process for edge deployments has a general pattern.  After a cl
 
 The diagram below gives a picture with an example data science process wherein open source tools may be leveraged for the data science workflow.  Data availability and type will drive most of the choices, even, potentially, the devices/hardware chosen.
 
-![Vision on the edge work flow](/media/vision_edge_flow.jpg)
+![Vision on the edge work flow](../media/vision_edge_flow.jpg)
 
 If a workflow is already in existance for the data scientists and app developers, a few other considerations exist.  First, it is advised to have a code, model and data versioning system in place.  Secondly, an automation plan for code and integration testing along with other aspects of the data science process (triggers, build/release process, etc.) will help speed up time to production and cultivate collaboration within the team.
 
@@ -448,13 +446,13 @@ Based on the distance of the loading dock size Contoso Shipping will require sev
 
 Formula:
 
-![field of view](/media/fieldofview.png)
+![field of view](../media/fieldofview.png)
 
 For an example if we look at the following images:
 
 Taken with 480 horizontal pixels at 20 foot
 
-![car1](/media/Car1.png)
+![car1](../media/Car1.png)
 
 Taken with 5184 horizontal pixels at 20 foot
 
@@ -466,4 +464,4 @@ The red square is shown to illustrate one pixel color.
 
 With the above in mind, when choosing a camera for the overall solution required for Contoso Shipping, we need to think about how many cameras and at what resolution is needed to get the correct amount of details to detect a person. Since we are only trying to identify if a person is in the frame or not, our PPF does not need to be around 80 (which is what is about needed for facial identification) and we can use somewhere around 15-20. That would place the FOV around 16 feet. A 16-foot FOV would give us about 17.5 pixels per foot…which fits within our required PPF of 15-20. This would mean that we need a **10MP camera that has a horizontal resolution of ~5184 pixels**, and a lens that would allow for a **FOV of 16 feet**. When looking at the solution the cameras would need to be placed outside, and the choice of sensor type should not allow for “bloom”. Bloom is when light hits the sensor and overloads the sensor with light…this causes a view of almost over exposure or a “white out” kind of condition. **CMOS** is the choice here. Contoso operates 24x7 and as such needs to ensure that nighttime personal are also protected. When looking at color vs Monochrome, **Monochrome** handles low light conditions much better, and we are not looking to identify a person based on color monochrome sensors are a little cheaper as well. How many cameras will it take? Since we have figured out that our cameras can look at a 16 foot path, it is just simple math. 165 foot dock divided by 16 foot FOV gives us 10.3125 cameras. So the solution would need **11 Monochrome 5184 horizontal pixel (or 10MP) CMOS cameras with IPX67 housings or weather boxes**. The cameras would be mounted on 11 poles 100 feet from the trucks at 17f high.  Based on the fact that the data scientist are more familiar with **Open-VINO** data models should be built in **ONNX**.  When looking for what hardware should be used, they need a device that can be connected over WIFI, and use as little power as possible.  Based on this they should look to an **FPGA processor**. Potentially an ASIC processor could also be utilized, but due to the nature of how an ASIC processor works, it would not meet the requirement of being able to use the models on different hardware in the future.
 
-![camera mount](/media/TruckPersonCameraMount.png)
+![camera mount](../media/TruckPersonCameraMount.png)
