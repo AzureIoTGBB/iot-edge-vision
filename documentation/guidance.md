@@ -89,7 +89,7 @@ There are several different factors that can weigh into the overall decision for
 
 In a computer vision workload, lighting is a critical component to camera placement.  There are several different lighting conditions.  While some of the lighting conditions would be useful for one vision workload, it might produce an undesirable condition in another.  Types of lighting that are commonly used in computer vision workloads are:
 
-* **Direct lighting:** this is the most common used lighting condition.  This light source is projected at the object to be captured for evaluation.
+* **Direct lighting:** This is the most commonly used lighting condition.  This light source is projected at the object to be captured for evaluation.
 
 * **Line lighting:** This is a single array of lights that are most used with line scan camera applications to create a single line of light where the camera is focused.
 
